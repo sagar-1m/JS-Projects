@@ -2,6 +2,13 @@
 
 TaskFlow is a simple and intuitive task management application that helps you keep track of your tasks. It allows you to add, complete, and delete tasks with ease. The tasks are stored in the browser's local storage, so they persist even after you close the browser.
 
+## Landing Page Images
+
+Here are some screenshots of the TaskFlow landing page:
+
+![Landing Page 1](images/01.png)
+![Landing Page 2](images/02.png)
+
 ## Features
 
 - **Add Task**: Add a new task to the list by entering the task description and clicking the "Add Task" button.
