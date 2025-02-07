@@ -1,3 +1,5 @@
+import dotenv from "dotenv"; // import the dotenv package
+dotenv.config({ path: "./.env" }); // configure the dotenv package
 document.addEventListener("DOMContentLoaded", () => {
   const cityInput = document.getElementById("city-input");
   const getWeatherBtn = document.getElementById("get-weather-btn");
@@ -7,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const weatherConditionDisplay = document.getElementById("weather-condition");
   const errorMessage = document.getElementById("error-msg");
 
-  const API_KEY = "74933eb539574d7ccf9d9104b8779904"; // this is the api key that i got from the openweathermap website, environment variables
+  const API_KEY = process.env.API_KEY; // this is the api key that i got from the openweathermap website, environment variables
 
   // first i want to get the city name from the input field when the user clicks the button of get weather
   getWeatherBtn.addEventListener("click", async () => {
