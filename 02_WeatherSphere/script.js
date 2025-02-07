@@ -1,5 +1,7 @@
-import dotenv from "dotenv"; // import the dotenv package
-dotenv.config({ path: "./.env" }); // configure the dotenv package
+import CONFIG from "./config.js";
+
+const API_KEY = CONFIG.API_KEY;
+
 document.addEventListener("DOMContentLoaded", () => {
   const cityInput = document.getElementById("city-input");
   const getWeatherBtn = document.getElementById("get-weather-btn");
@@ -8,8 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const temperatureDisplay = document.getElementById("temperature");
   const weatherConditionDisplay = document.getElementById("weather-condition");
   const errorMessage = document.getElementById("error-msg");
-
-  const API_KEY = process.env.API_KEY; // this is the api key that i got from the openweathermap website, environment variables
 
   // first i want to get the city name from the input field when the user clicks the button of get weather
   getWeatherBtn.addEventListener("click", async () => {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`; // this is the url that i will use to fetch the data from the api using the city name that the user entered
     const response = await fetch(url); // this is the response that i got from the api
     console.log(typeof response); // object of type Response
-    console.log("RESPONSE", response); // Response {type: "cors", url: "https://api.openweathermap.org/data/2.5/weather?q=cairo&units=metric&appid=74933eb539574d7ccf9d9104b8779904", redirected: false, status: 200, ok: true, …}
+    console.log("RESPONSE", response); // Response {type: "cors", url: "https://api.openweathermap.org/data/2.5/weather?q=cairo&units=metric&appid=API_KEY", redirected: false, status: 200, ok: true, …}
 
     if (!response.ok) {
       throw new Error(`Response status was not ok: ${response.status}`); // if the response status is not ok, then throw an error
