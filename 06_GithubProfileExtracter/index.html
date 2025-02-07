@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Profile Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <div class="header">
+        <div class="logo">
+          <i class="fab fa-github"></i>
+          <h1>GitHub Profile Explorer</h1>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle" title="Toggle theme">
+          <i class="fas fa-moon moon-icon"></i>
+          <i class="fas fa-sun sun-icon"></i>
+        </button>
+
+        <!-- Search Section -->
+        <div class="search-box">
+          <div class="search-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter Github Username"
+            />
+          </div>
+          <button id="extract-btn">
+            <span class="btn-text">Search Profile</span>
+            <span class="loader"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Favorites Section -->
+      <div id="favorites-section" class="favorites-section hidden">
+        <h3>Recent Searches</h3>
+        <div id="favorites-list" class="favorites-list"></div>
+      </div>
+
+      <!-- Error Message -->
+      <div id="error-message" class="error-message hidden"></div>
+
+      <!-- Main Profile Container -->
+      <div class="profile-container hidden">
+        <!-- Profile Info -->
+        <div class="profile-info">
+          <div class="profile-header">
+            <img src="" alt="Profile Picture" id="profile-img" />
+            <div class="user-details">
+              <div class="name-section">
+                <h2 id="name"></h2>
+                <span class="joined-date" id="joined-date"></span>
+              </div>
+              <a
+                href="#"
+                id="github-link"
+                class="github-username"
+                target="_blank"
+              ></a>
+              <p id="bio"></p>
+            </div>
+          </div>
+
+          <!-- Stats Card -->
+          <div class="stats-card">
+            <div class="stat-item">
+              <span class="stat-label">Repositories</span>
+              <span class="stat-value" id="repos">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Followers</span>
+              <span class="stat-value" id="followers">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Following</span>
+              <span class="stat-value" id="following">0</span>
+            </div>
+          </div>
+
+          <!-- Social Info -->
+          <div class="social-info">
+            <div class="social-item" id="location-container">
+              <i class="fas fa-map-marker-alt"></i>
+              <span id="location">Not Available</span>
+            </div>
+            <div class="social-item" id="twitter-container">
+              <i class="fab fa-twitter"></i>
+              <span id="twitter">Not Available</span>
+            </div>
+            <div class="social-item" id="blog-container">
+              <i class="fas fa-link"></i>
+              <span id="blog">Not Available</span>
+            </div>
+            <div class="social-item" id="company-container">
+              <i class="fas fa-building"></i>
+              <span id="company">Not Available</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Language Stats Section -->
+        <div class="language-stats">
+          <h3>Languages Used</h3>
+          <canvas id="language-chart"></canvas>
+        </div>
+
+        <!-- Repository Section -->
+        <div class="repos-section">
+          <div class="repos-header">
+            <h3>Top Repositories</h3>
+            <div class="repo-controls">
+              <div class="repo-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sources">
+                  Sources
+                </button>
+                <button class="filter-btn" data-filter="forks">Forks</button>
+              </div>
+              <div class="repo-search">
+                <input
+                  type="text"
+                  id="repo-search"
+                  placeholder="Search repositories..."
+                />
+              </div>
+            </div>
+          </div>
+          <div id="repos-list" class="repos-container"></div>
+        </div>
+      </div>
+
+      <!-- Export Button -->
+      <button id="export-btn" class="export-btn hidden">
+        <i class="fas fa-download"></i> Export Profile Data
+      </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
